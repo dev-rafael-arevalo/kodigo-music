@@ -1,0 +1,79 @@
+/* styles.css */
+
+/* Reset de márgenes y paddings */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Estilos del body */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #121212; /* Fondo oscuro */
+    color: #ffffff; /* Texto blanco */
+}
+
+/* Estilos del contenedor principal */
+.player-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+}
+
+/* Estilos de la lista de canciones */
+.track-list {
+    list-style-type: none;
+    width: 100%;
+    max-width: 600px;
+    margin: 20px 0;
+    padding: 0;
+}
+
+.track-list li {
+    padding: 10px;
+    background-color: #1e1e1e; /* Fondo para las canciones */
+    margin: 5px 0;
+    border-radius: 5px;
+    cursor: pointer; /* Cambia a mano al pasar el mouse */
+    transition: background-color 0.3s;
+}
+
+.track-list li:hover {
+    background-color: #2a2a2a; /* Color al pasar el mouse */
+}
+
+/* Estilos para la canción activa */
+.active-track {
+    background-color: #3a3a3a; /* Color diferente para la canción actual */
+}
+
+/* Estilos para los controles */
+.controls {
+    display: flex;
+    justify-content: space-between;
+    width: 200px;
+    margin: 20px 0;
+}
+
+/* Estilos de la imagen de la canción actual */
+.current-track-image {
+    width: 100%;
+    max-width: 300px; /* Limitar el tamaño de la imagen */
+    border-radius: 10px;
+}
+
+/* Estilos del enlace de suscripción */
+.subscribe-section {
+    margin-top: 20px;
+}
+
+.subscribe-link {
+    color: #1db954; /* Color de enlace similar al de Spotify */
+    text-decoration: none;
+}
+
+.subscribe-link:hover {
+    text-decoration: underline; /* Subrayado al pasar el mouse */
+}
