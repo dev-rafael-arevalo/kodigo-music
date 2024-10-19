@@ -1,0 +1,77 @@
+.player-container {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+    background-color: #121212; /* Fondo oscuro similar a Spotify */
+  }
+  
+  .track-list-container {
+    width: 60%;
+    background-color: #1e1e1e; /* Fondo gris oscuro para la lista de canciones */
+    padding: 20px;
+    border-radius: 8px;
+  }
+  
+  .track-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .track-list li {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    border-bottom: 1px solid #282828; /* Línea verde para separar canciones */
+    color: #b3b3b3;
+  }
+  
+  .track-list li.active-track {
+    color: #f1356d; /* Rosa para la canción activa */
+    background-color: #282828;
+  }
+  
+  .track-details {
+    width: 35%;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  
+  .current-track-image {
+    width: 100%;
+    max-width: 300px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+  }
+  
+  .controls {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 20px;
+  }
+  
+  .subscribe-section {
+    text-align: center;
+    margin-top: 20px;
+  }
+  
+  .subscribe-link {
+    font-size: 18px;
+    padding: 10px 20px;
+    background-color: #1DB954;
+    color: white;
+    text-decoration: none;
+    border-radius: 25px;
+    transition: background-color 0.3s ease;
+  }
+  
+  .subscribe-link:hover {
+    background-color: #1ed760;
+  }
+  /* src/Home.css */
+.track-list li {
+  cursor: pointer; /* Cambia el cursor a mano */
+}
