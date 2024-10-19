@@ -1,10 +1,7 @@
-import { defineConfig } from 'vite';
-import react from '@vitejs/plugin-react';
+import { defineConfig } from 'vite'
+import react from '@vitejs/plugin-react-swc'
 
+// https://vitejs.dev/config/
 export default defineConfig({
   plugins: [react()],
-  base: '/kodigo-music/', // Asegúrate de que esta línea esté presente
-  build: {
-    outDir: 'dist', // La carpeta donde se generará la build
-  },
-});
+})
