@@ -1,13 +1,14 @@
 {
+  "homepage":"https://github.com/dev-rafael-arevalo/kodigo-music.git",
   "name": "kodigo-music",
   "private": true,
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "vite",
+    "start": "vite",
     "build": "vite build",
-    "lint": "eslint .",
-    "preview": "vite preview"
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d dist"
   },
   "dependencies": {
     "axios": "^1.7.7",
