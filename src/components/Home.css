@@ -1,0 +1,249 @@
+body {
+  background: radial-gradient(circle, #1db954, #191414, #535353, #1db954);
+  background-size: 400% 400%;
+  animation: gradientAnimation 15s ease infinite;
+  margin: 0;
+  font-family: Arial, sans-serif;
+  position: relative; /* Necesario para el posicionamiento de las barras */
+}
+
+@keyframes snowEffect {
+  0% {
+    color: #ffffff;
+    text-shadow: 0 0 5px rgba(255, 255, 255, 0.7),
+                 0 0 10px rgba(255, 255, 255, 0.5);
+  }
+  50% {
+    color: #eeeeee;
+    text-shadow: 0 0 15px rgba(255, 255, 255, 0.5),
+                 0 0 20px rgba(255, 255, 255, 0.3);
+  }
+  100% {
+    color: #ffffff;
+    text-shadow: 0 0 5px rgba(255, 255, 255, 0.7),
+                 0 0 10px rgba(255, 255, 255, 0.5);
+  }
+}
+
+h2 {
+  text-align: center;
+  font-size: 3rem;
+  margin-top: 50px;
+  animation: snowEffect 3s ease-in-out infinite;
+}
+
+
+h3 {
+  text-align: center;
+  color: #ffffff;
+  font-size: 1rem;
+  margin-top: 50px;
+}
+
+/* Estilos para el ecualizador */
+.eco-container {
+  position: fixed; /* Fijo en la parte inferior */
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 100px; /* Altura del ecualizador */
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-end; /* Alinear al fondo */
+  padding: 0 20px;
+  pointer-events: none; /* Evitar que interfiera con la interacción */
+}
+
+.eco-bar {
+  width: 20px; /* Aumentar el ancho de cada barra */
+  background-color: #1db954; /* Color de las barras por defecto */
+  animation: bounce 1s ease-in-out infinite; /* Animación de rebote */
+}
+
+/* Colores variados para cada barra */
+.eco-bar:nth-child(1) { background-color: #1db954; }
+.eco-bar:nth-child(2) { background-color: #ffcc00; }
+.eco-bar:nth-child(3) { background-color: #ff3d00; }
+.eco-bar:nth-child(4) { background-color: #00bfff; }
+.eco-bar:nth-child(5) { background-color: #ff0090; }
+.eco-bar:nth-child(6) { background-color: #ff8000; }
+.eco-bar:nth-child(7) { background-color: #8a2be2; }
+.eco-bar:nth-child(8) { background-color: #7fff00; }
+.eco-bar:nth-child(9) { background-color: #ff1493; }
+.eco-bar:nth-child(10) { background-color: #00fa9a; }
+
+@keyframes gradientAnimation {
+  0% {
+    background-position: 50% 0%;
+  }
+  50% {
+    background-position: 50% 100%;
+  }
+  100% {
+    background-position: 50% 0%;
+  }
+}
+
+@keyframes bounce {
+  0%, 100% {
+    height: 20px; /* Altura inicial */
+  }
+  50% {
+    height: 70px; /* Altura máxima */
+  }
+}
+
+
+
+.player-container {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+    background-color: #121212; /* Fondo oscuro similar a Spotify */
+  }
+  
+  .track-list-container {
+    width: 80%;
+    background-color: #1e1e1e; /* Fondo gris oscuro para la lista de canciones */
+    padding: 20px;
+    border-radius: 8px;
+  }
+  
+  .track-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .track-list li {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    border-bottom: 1px solid #282828; /* Línea verde para separar canciones */
+    color: #b3b3b3;
+  }
+  
+  .track-list li.active-track {
+    color: #f1356d; /* Rosa para la canción activa */
+    background-color: #282828;
+  }
+  
+  .track-details {
+    width: 35%;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 20px 20px 20px 20px;
+  }
+  
+  .current-track-image {
+    width: 100%;
+    max-width: 300px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    margin-left: 20px;
+  }
+  
+  .controls {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 20px;
+    margin-left: 30px;
+  }
+  
+  .subscribe-section {
+    text-align: center;
+    margin-top: 20px;
+  }
+  
+  .subscribe-link {
+    font-size: 18px;
+    padding: 10px 20px;
+    background-color: #1DB954;
+    color: white;
+    text-decoration: none;
+    border-radius: 25px;
+    transition: background-color 0.3s ease;
+  }
+  
+  .subscribe-link:hover {
+    background-color: #1ed760;
+  }
+  /* src/Home.css */
+.track-list li {
+  cursor: pointer; /* Cambia el cursor a mano */
+}
+
+.progress-container {
+  width: 100%;
+  height: 10px;
+  background-color: #ddd; /* Color de fondo de la barra */
+  border-radius: 5px;
+  margin-top: 10px; /* Espacio entre los controles y la barra de progreso */
+  overflow: hidden; /* Oculta la parte excedente */
+}
+
+.progress-bar {
+  height: 100%;
+  background-color: #1db954; /* Color de la barra de progreso */
+  transition: width 0.2s ease; /* Transición suave al cambiar el ancho */
+  cursor:pointer;
+}
+
+
+.category-container {
+  width: 200px;
+  border: 1px solid #1db954;
+  border-radius: 8px;
+  padding: 10px;
+  background-color: rgba(255, 255, 255, 0.1);
+  margin-right: 20px;
+}
+
+.category-list {
+  list-style-type: none;
+  padding: 0;
+  color: #fff;
+}
+
+.category-list li {
+  padding: 10px;
+  cursor: pointer;
+}
+
+.category-list li:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+.active-category {
+  background-color: #1db954;
+  color: #31fc09;
+}
+
+.track-list {
+  width: 100%;
+  border-collapse: collapse; /* Para eliminar el espacio entre celdas */
+  color: #fff;
+}
+
+.track-list thead {
+  background-color: #1DB954; /* Color de fondo para el encabezado */
+}
+
+.track-list th, .track-list td {
+  padding: 10px;
+  text-align: left;
+  border: none; /* Sin bordes */  
+  font-size:0.9rem;
+}
+.track-list tbody tr:hover {
+  background-color: #1DB954; /* Color al pasar el mouse */
+  color: #fff;
+  cursor:pointer;
+}
+
+.active-track {
+  color: #f1356d; /* Rosa para la canción activa */  
+}
