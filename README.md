@@ -1,7 +1,3 @@
-Claro, aquí tienes un archivo `README.md` detallado para la portada de tu repositorio principal en GitHub, que describe el proyecto "Kodigo Music", sus características, funcionalidades, y tecnologías utilizadas.
-
----
-
 # 🎶 Kodigo Music
 
 **Kodigo Music** es una aplicación de streaming de música desarrollada con **React** y **Vite**, diseñada para ofrecer una experiencia de reproducción de canciones inspirada en plataformas como Spotify, Deezer y Apple Music. La aplicación permite a los usuarios escuchar una lista de reproducción de canciones, navegar por categorías, y explorar opciones de suscripción.
