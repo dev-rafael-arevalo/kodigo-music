@@ -1,77 +1,77 @@
 # 🎶 Kodigo Music
 
-**Kodigo Music** es una aplicación de streaming de música desarrollada con **React** y **Vite**, diseñada para ofrecer una experiencia de reproducción de canciones inspirada en plataformas como Spotify, Deezer y Apple Music. La aplicación permite a los usuarios escuchar una lista de reproducción de canciones, navegar por categorías, y explorar opciones de suscripción.
+**Kodigo Music** is a music streaming application built with **React** and **Vite**, designed to offer a song playback experience inspired by platforms like Spotify, Deezer, and Apple Music. The app allows users to listen to a playlist, navigate through music categories, and explore subscription options.
 
 ---
 
-## 📜 Descripción del Proyecto
+## 📜 Project Overview
 
-Kodigo Music es una plataforma interactiva para streaming de música, que proporciona una lista de reproducción funcional con botones de reproducción, pausa, siguiente y retroceder, además de un sistema de suscripción. La aplicación integra la API de **Jamendo** para obtener las canciones, y ofrece una interfaz atractiva y responsiva para el usuario, que se inspira en los colores y el estilo de Spotify.
-
----
-
-## 🚀 Características Principales
-
-- **Reproducción de Música**: Permite reproducir, pausar y cambiar entre canciones en la lista de reproducción.
-- **Navegación entre Canciones**: Botones de siguiente y retroceder, con reproducción automática de la siguiente o anterior canción.
-- **Lista de Canciones**: Visualización de todas las canciones disponibles, con detalles como el nombre, el artista y el álbum.
-- **Imagen del Álbum**: Muestra la imagen del álbum de la canción en reproducción.
-- **Suscripción a Kodigo Music**: Opción para suscribirse y desbloquear más funciones.
-- **Diseño Atractivo y Responsivo**: Estilos basados en Spotify con colores y tipografías similares, optimizados para dispositivos móviles y de escritorio.
-- **Uso de Buenas Prácticas de Clean Code**: Código modular y bien estructurado, con componentes independientes y un sistema de rutas claro.
+Kodigo Music is an interactive platform for music streaming, providing a functional playlist with play, pause, next, and previous buttons, as well as a subscription system. The application integrates the **Jamendo** API to fetch songs, and offers an attractive, responsive interface inspired by Spotify's color scheme and style.
 
 ---
 
-## 🛠️ Tecnologías Utilizadas
+## 🚀 Key Features
 
-- **React** con **Vite** para la estructura del proyecto
-- **React Router** para la navegación entre las distintas páginas
-- **Jamendo API** para obtener canciones de forma gratuita
-- **Bootstrap** para diseño y estructura responsiva
-- **FontAwesome** para iconos atractivos
-- **SweetAlert** y **Toastr** para alertas y notificaciones amigables al usuario
-- **CSS personalizado** para estilos adicionales y una interfaz atractiva
+- **Music Playback**: Play, pause, and skip through songs in the playlist.
+- **Song Navigation**: Next and previous buttons with automatic playback of the next or previous track.
+- **Song List**: Displays all available tracks with details like name, artist, and album.
+- **Album Art**: Shows the album image of the currently playing song.
+- **Kodigo Music Subscription**: Option to subscribe and unlock more features.
+- **Attractive, Responsive Design**: Spotify-inspired design with similar colors and typography, optimized for mobile and desktop devices.
+- **Clean Code Practices**: Modular, well-structured code with independent components and a clear routing system.
 
 ---
 
-## 📂 Estructura del Proyecto
+## 🛠️ Technologies Used
+
+- **React** with **Vite** for project structure
+- **React Router** for navigation between pages
+- **Jamendo API** for free music tracks
+- **Bootstrap** for responsive design and layout
+- **FontAwesome** for attractive icons
+- **SweetAlert** and **Toastr** for user-friendly alerts and notifications
+- **Custom CSS** for additional styling and a visually appealing interface
+
+---
+
+## 📂 Project Structure
 
 ```plaintext
 ├── src
-│   ├── assets            # Contiene las imágenes y el logo de Kodigo Music
-│   ├── components        # Componentes reutilizables como ControlButton
-│   ├── pages             # Páginas de la aplicación (e.g., Home, Subscripción)
-│   ├── routes            # Configuración de rutas en un solo archivo Route.jsx
-│   ├── services          # Servicios para manejar la API de Jamendo
-│   ├── App.jsx           # Componente principal de la aplicación
-│   └── main.jsx          # Archivo de entrada de la aplicación
+│   ├── assets            # Contains images and the Kodigo Music logo
+│   ├── components        # Reusable components like ControlButton
+│   ├── pages             # Application pages (e.g., Home, Subscription)
+│   ├── routes            # Route configuration in a single Route.jsx file
+│   ├── services          # Services to handle the Jamendo API
+│   ├── App.jsx           # Main application component
+│   └── main.jsx          # Application entry file
 └── README.md
 ```
 
 ---
 
-## 🖥️ Instalación y Ejecución del Proyecto
+## 🖥️ Installation and Run Instructions
 
-### 1. Clonar el repositorio
+### 1. Clone the repository
 
 ```bash
 git clone https://github.com/dev-rafael-arevalo/kodigo-music.git
 cd kodigo-music
 ```
 
-### 2. Instalar dependencias
+### 2. Install dependencies
 
 ```bash
 npm install
 ```
 
-### 3. Ejecutar el proyecto en modo desarrollo
+### 3. Run the project in development mode
 
 ```bash
 npm run dev
 ```
 
-### 4. Construir el proyecto para producción
+### 4. Build the project for production
 
 ```bash
 npm run build
@@ -79,40 +79,40 @@ npm run build
 
 ---
 
-## 🎨 Estilos y UI
+## 🎨 Styling and UI
 
-El diseño de Kodigo Music se inspira en los colores y estilos de Spotify. Se utilizan líneas verdes y colores oscuros para la interfaz de usuario, lo que genera una experiencia visual moderna y elegante. Además, cada componente cuenta con un archivo CSS independiente para mantener la modularidad y facilitar la personalización de estilos.
-
----
-
-## 📑 Documentación de la API
-
-Esta aplicación utiliza la API de **Jamendo** para obtener las canciones. Puedes consultar la [documentación de la API de Jamendo](https://developer.jamendo.com/v3.0) para obtener más detalles sobre los endpoints y cómo se utilizan en la aplicación.
+Kodigo Music’s design is inspired by Spotify’s colors and styles. It features green lines and dark colors for a modern and sleek user experience. Each component has an independent CSS file to maintain modularity and make style customization easy.
 
 ---
 
-## 📚 Funcionalidades Futuras
+## 📑 API Documentation
 
-Algunas de las mejoras planeadas para próximas versiones de Kodigo Music incluyen:
-
-- **Categorías de Música**: Navegación avanzada por géneros musicales y artistas.
-- **Favoritos y Playlists**: Guardar canciones favoritas y crear listas de reproducción personalizadas.
-- **Modo Oscuro/Claro**: Alternar entre diferentes temas de color.
-- **Autenticación de Usuarios**: Funcionalidades avanzadas para gestionar cuentas y suscripciones.
+This application uses the **Jamendo** API to fetch music tracks. You can refer to the [Jamendo API documentation](https://developer.jamendo.com/v3.0) for more details on the endpoints and how they are utilized within the app.
 
 ---
 
-## 👤 Autor
+## 📚 Future Features
+
+Some planned improvements for future versions of Kodigo Music include:
+
+- **Music Categories**: Advanced browsing by genres and artists.
+- **Favorites and Playlists**: Save favorite songs and create custom playlists.
+- **Dark/Light Mode**: Switch between different color themes.
+- **User Authentication**: Advanced features to manage user accounts and subscriptions.
+
+---
+
+## 👤 Author
 
 **Rafael Arévalo**  
 [GitHub](https://github.com/dev-rafael-arevalo)
 
 ---
 
-## 📄 Licencia
+## 📄 License
 
-Este proyecto está licenciado bajo la [MIT License](LICENSE).
+This project is licensed under the [MIT License](LICENSE).
 
 ---
 
-¡Gracias por visitar Kodigo Music! 🎧
+Thank you for checking out Kodigo Music! 🎧
