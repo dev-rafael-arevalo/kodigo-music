@@ -8,14 +8,14 @@ function Home() {
   const [tracks, setTracks] = useState([]);
   const [currentTrack, setCurrentTrack] = useState(null);
   const [isPlaying, setIsPlaying] = useState(false);
-  const [category, setCategory] = useState('synthwave'); // Categoría por defecto
-  const [progress, setProgress] = useState(0); // Estado para el progreso
+  const [category, setCategory] = useState('synthwave');
+  const [progress, setProgress] = useState(0);
   const [currentTime, setCurrentTime] = useState(0);
+  const [showCategories, setShowCategories] = useState(false);
   const audioRef = useRef(null);
 
-  const categories = ['synthwave', 'indiepop', 'rock', 'funk', 'latin pop']; // Lista de categorías
+  const categories = ['synthwave', 'indiepop', 'rock', 'funk', 'latin pop'];
 
-  // Fetch tracks cuando cambia la categoría
   useEffect(() => {
     async function fetchTracks() {
       const tracksData = await getTracks(category);
@@ -75,7 +75,6 @@ function Home() {
     }
   }, [currentTrack, isPlaying]);
 
-  // Manejar el tiempo actual
   const handleTimeUpdate = () => {
     if (audioRef.current) {
       setCurrentTime(audioRef.current.currentTime);
@@ -83,7 +82,6 @@ function Home() {
     }
   };
 
-  // Manejar el cambio en la barra de progreso
   const handleSeek = (event) => {
     const seekTime = event.target.value;
     if (audioRef.current) {
@@ -94,8 +92,6 @@ function Home() {
 
   useEffect(() => {
     const audio = audioRef.current;
-
-    // Solo agregar el listener si el audio no es null
     if (audio) {
       audio.addEventListener('timeupdate', handleTimeUpdate);
       return () => {
@@ -104,7 +100,6 @@ function Home() {
     }
   }, [audioRef.current]);
 
-  // Calcular minutos transcurridos y restantes
   const duration = currentTrack ? currentTrack.duration : 0;  
   const formatTime = (time) => {
     const minutes = Math.floor(time / 60);
@@ -113,92 +108,107 @@ function Home() {
   };
 
   return (
-    <div>
-      <h2>Kodigo Music</h2>
-      <div className="player-container">
-        <div className="category-container">
-          <h3>Categories</h3>
-          <ul className="category-list">
-            {categories.map((cat) => (
-              <li 
-                key={cat} 
-                className={cat === category ? 'active-category' : ''}
-                onClick={() => setCategory(cat)} // Cambia la categoría al hacer clic
-              >
-                {cat}
-              </li>
-            ))}
-          </ul>
-        </div>
+<div className="container bg bg-black p-5">
+  <h2 className="text-center text-white mt-5">Qappital Music</h2>
+  
+  <div className="row mt-4">
+    {/* Sidebar de categorías */}
+    <div className="col-md-3 col-sm-12">
+      {/* Botón para mostrar categorías en pantallas pequeñas */}
+      <button 
+        className="btn btn-success d-md-none" 
+        onClick={() => setShowCategories(!showCategories)}
+      >
+        ☰ Categories
+      </button>
 
-        <div className="track-list-container">
-          <h3>Playlist</h3>
-          <table className="track-list striped">
-            <thead>
-              <tr>
-                <th className='text-left'>#</th>
-                <th className='text-left'>Song</th>
-                <th className='text-center'>Album</th>
-                <th className='text-right'>Duration</th>
-              </tr>
-            </thead>
-            <tbody>
-              {tracks.map((track, index) => (
-                <tr 
-                  key={track.id} 
-                  className={track.id === currentTrack?.id ? 'active-track' : ''}
-                  onClick={() => handleTrackClick(track)}
-                >
-                  <td className='text-left'>{index + 1}</td>
-                  <td className='text-left'>{track.name}</td>
-                  <td className='text-center'>{track.album}</td>
-                  <td className='text-right'>{(track.duration / 60).toFixed(2)} min</td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-          
-        </div>
+      {/* Lista de categorías, visible en pantallas grandes o cuando está activa en pantallas pequeñas */}
+      {(showCategories || window.innerWidth >= 768) && (
+        <ul className="mt-2">
+          {categories.map((cat) => (
+            <button 
+              key={cat} 
+              className={`row justify-content-center col-md-12 col-sm-6 mb-2 category-button ${cat === category ? 'active' : ''}`}
+              onClick={() => setCategory(cat)}
+            >
+              {cat}
+            </button>
+          ))}
+        </ul>
+      )}
+    </div>
 
-        <div className="track-details">
-          {currentTrack && (
-            <>
-              <h3>{currentTrack.name}</h3>
-              <img src={currentTrack.album_image} alt={currentTrack.name} className="current-track-image" />
-              <audio ref={audioRef} />
-              <div className="controls">                
-                <ControlButton type="back" onClick={handlePrevious} />                
-                <ControlButton 
-                  type={isPlaying ? "pause" : "play"} 
-                  onClick={isPlaying ? handlePause : handlePlay} 
-                />                
-                <ControlButton type="next" onClick={handleNext} />
-              </div>
-
-              {/* Barra de progreso */}
-              <input
-                type="range"
-                min="0"
-                max={currentTrack ? currentTrack.duration : 0}
-                value={currentTime}
-                onChange={handleSeek}
-                className="progress-bar"
-              />
-              <div className="progress-time">
-                <span>{formatTime(currentTime)} / {formatTime(duration)}</span>
-              </div>
-            </>
-          )}
-          
+    {/* Contenido central - Lista de canciones */}
+    <div className="bg bg-dark col-md-6 col-sm-12 table-responsive">
+      <h6 className="text-center text-white">Playlist</h6>
+      <table className="table table-sm table-dark table-responsive rounded-2 text-white bg bg-gray small m-2">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th className="text-left">Song</th>
+            <th>Album</th>
+            <th>Duration</th>
+          </tr>
+        </thead>
+        <tbody>
+  {tracks.map((track, index) => (
+    <tr 
+      key={track.id} 
+      className={track.id === currentTrack?.id ? 'table-active' : ''}
+      onClick={() => handleTrackClick(track)}
+    >
+      <td>{index + 1}</td>
+      <td className='text-left'>
+        <div className="marquee-container">
+          <span className="marquee">{track.name}</span>
         </div>
-        
+      </td>
+      <td>{track.album}</td>
+      <td>{(track.duration / 60).toFixed(2)} min</td>
+    </tr>
+  ))}
+</tbody>
+
+      </table>
+    </div>
+
+    {/* Controles de reproducción */}
+    <div className="col-md-3 col-sm-12 text-center">
+  {currentTrack && (
+    <>
+      <div className="marquee-container">
+        <h3 className="marquee text-white">{currentTrack.name}</h3>
       </div>
-      
-      {/* Botón de suscripción */}
-      <div className="subscribe-section">
-        <Link to="/subs" className="subscribe-link">Subscribe to Kodigo Music</Link>
-      </div>      
-    </div>    
+      <img src={currentTrack.album_image} alt={currentTrack.name} className="img-fluid rounded" />
+      <audio ref={audioRef} />
+      <div className="mt-3">
+        <ControlButton type="back" onClick={handlePrevious} />
+        <ControlButton type={isPlaying ? "pause" : "play"} onClick={isPlaying ? handlePause : handlePlay} />
+        <ControlButton type="next" onClick={handleNext} />
+      </div>
+      <input
+        type="range"
+        min="0"
+        max={currentTrack ? currentTrack.duration : 0}
+        value={currentTime}
+        onChange={handleSeek}
+        className="form-range mt-3"
+      />
+      <div className="mt-2 text-white">
+        <span>{formatTime(currentTime)} / {formatTime(duration)}</span>
+      </div>
+    </>
+  )}
+</div>
+
+  </div>
+
+  {/* Enlace de suscripción */}
+  <div className="text-center p-4">
+    <Link to="/subs" className="btn btn-primary">Subscribe to Kodigo Music</Link>
+  </div>
+</div>
+
   );
 }
 
