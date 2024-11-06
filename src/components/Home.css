@@ -1,6 +1,6 @@
 body {
   background: radial-gradient(circle, #1db954, #191414, #535353, #1db954);
-  background-size: 400% 400%;
+  background-size: 500% 500%;
   animation: gradientAnimation 15s ease infinite;
   margin: 0;
   font-family: Arial, sans-serif;
@@ -11,9 +11,17 @@ body {
    /* Asegura que el body ocupe toda la altura de la ventana */
   padding: 20px; /* Agrega un pequeño padding para evitar que el contenido toque los bordes */
   box-sizing: border-box; /* Incluye el padding en el cálculo de las dimensiones */
-  text-align: center; /* Centra el texto dentro del body */
+  text-align: left; /* Centra el texto dentro del body */
 }
 
+h2 {
+  text-align: center;
+  font-size: 3rem;
+  margin-top: 50px;
+  animation: snowEffect 3s ease-in-out infinite;
+}
+
+/* Cambiar color de la fila activa en las tablas */
 /* Botones de categorías */
 .category-button {
   background: linear-gradient(135deg, #1db954, #34c759);
@@ -43,19 +51,9 @@ body {
   transform: scale(1.05);
 }
 
-/* Marquee */
-.marquee-container {
-  overflow: hidden;
-  white-space: nowrap;
-  width: 100%;
-}
 
-.marquee {
-  display: inline-block;
-}
-
-.marquee.animate {
-  animation: marquee 8s linear infinite alternate;
+thead {
+  background-color: #121212;
 }
 
 tbody{
@@ -94,5 +92,23 @@ tbody{
   }
   100% {
     transform: translateX(0);
+  }
+}
+
+@keyframes snowEffect {
+  0% {
+    color: #ffffff;
+    text-shadow: 0 0 5px rgba(255, 255, 255, 0.7),
+                 0 0 10px rgba(255, 255, 255, 0.5);
+  }
+  50% {
+    color: #eeeeee;
+    text-shadow: 0 0 15px rgba(255, 255, 255, 0.5),
+                 0 0 20px rgba(255, 255, 255, 0.3);
+  }
+  100% {
+    color: #ffffff;
+    text-shadow: 0 0 5px rgba(255, 255, 255, 0.7),
+                 0 0 10px rgba(255, 255, 255, 0.5);
   }
 }

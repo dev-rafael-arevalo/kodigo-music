@@ -108,12 +108,12 @@ function Home() {
   };
 
   return (
-<div className="container bg bg-black p-5">
-  <h2 className="text-center text-white mt-5">Qappital Music</h2>
+<div className="container p-1 col-md-12">
+  <h2>Qappital Music</h2>
   
-  <div className="row mt-4">
+  <div className="row mt-3 bg bg-dark p-5">
     {/* Sidebar de categorías */}
-    <div className="col-md-3 col-sm-12">
+    <div className="col-md-2 col-sm-12">
       {/* Botón para mostrar categorías en pantallas pequeñas */}
       <button 
         className="btn btn-success d-md-none" 
@@ -139,13 +139,13 @@ function Home() {
     </div>
 
     {/* Contenido central - Lista de canciones */}
-    <div className="bg bg-dark col-md-6 col-sm-12 table-responsive">
-      <h6 className="text-center text-white">Playlist</h6>
-      <table className="table table-sm table-dark table-responsive rounded-2 text-white bg bg-gray small m-2">
-        <thead>
+    <div className="bg bg-gray col-md-7 col-sm-12">
+      <h6 className="text-white">Playlist</h6>
+      <table className="table table-dark table-striped text-white small m-2">
+        <thead className="table-warning">
           <tr>
             <th>#</th>
-            <th className="text-left">Song</th>
+            <th>Song</th>
             <th>Album</th>
             <th>Duration</th>
           </tr>
@@ -154,13 +154,13 @@ function Home() {
   {tracks.map((track, index) => (
     <tr 
       key={track.id} 
-      className={track.id === currentTrack?.id ? 'table-active' : ''}
+      className={track.id === currentTrack?.id ? 'table-success' : ''}
       onClick={() => handleTrackClick(track)}
     >
       <td>{index + 1}</td>
-      <td className='text-left'>
-        <div className="marquee-container">
-          <span className="marquee">{track.name}</span>
+      <td>
+        <div>
+          <span>{track.name}</span>
         </div>
       </td>
       <td>{track.album}</td>
@@ -176,8 +176,8 @@ function Home() {
     <div className="col-md-3 col-sm-12 text-center">
   {currentTrack && (
     <>
-      <div className="marquee-container">
-        <h3 className="marquee text-white">{currentTrack.name}</h3>
+      <div>
+        <h3 className="text-white">{currentTrack.name}</h3>
       </div>
       <img src={currentTrack.album_image} alt={currentTrack.name} className="img-fluid rounded" />
       <audio ref={audioRef} />
@@ -205,7 +205,7 @@ function Home() {
 
   {/* Enlace de suscripción */}
   <div className="text-center p-4">
-    <Link to="/subs" className="btn btn-primary">Subscribe to Kodigo Music</Link>
+    <Link to="/subs" className="btn btn-primary">Subscribe to Qappital Music</Link>
   </div>
 </div>
 
