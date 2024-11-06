@@ -205,7 +205,7 @@ function Home() {
 
   {/* Enlace de suscripción */}
   <div className="text-center p-4">
-    <Link to="/subs" className="btn btn-primary">Subscribe to Qappital Music</Link>
+    <Link to="/subs" className="btn btn-success">Subscribe to Qappital Music</Link>
   </div>
 </div>
 
